@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<style type="text/css">
+    /* FONTS */
+    @media screen {
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.googleapis.com/css?family=Montserrat);
+        }
+        
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          src: local('Montserrat Semi-Bold'), local('Montserrat-Semi-Bold'), url(https://fonts.googleapis.com/css?family=Montserrat);
+        }
+        
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: italic;
+          font-weight: 400;
+          src: local('Montserrat Italic'), local('Montserrat-Italic'), url(https://fonts.googleapis.com/css?family=Montserrat);
+        }
+        
+        @font-face {
+          font-family: 'Montserrat';
+          font-style: italic;
+          font-weight: 600;
+          src: local('Montserrat Semi-Bold Italic'), local('Montserrat-Semi-BoldItalic'), url(https://fonts.googleapis.com/css?family=Montserrat);
+        }
+    }
+    
+    /* CLIENT-SPECIFIC STYLES */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; }
+
+    /* RESET STYLES */
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    table { border-collapse: collapse !important; }
+    body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+    /* iOS BLUE LINKS */
+    a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }
+    
+    /* MOBILE STYLES */
+    @media screen and (max-width:600px){
+        h1 {
+            font-size: 32px !important;
+            line-height: 32px !important;
+        }
+    }
+
+    /* ANDROID CENTER FIX */
+    div[style*="margin: 16px 0;"] { margin: 0 !important; }
+</style>
+</head>
+<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
+
+<!-- HIDDEN PREHEADER TEXT -->
+<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Montserrat', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+    We're thrilled to have you here! Get ready to dive into your new account.
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <!-- LOGO -->
+    <tr>
+        <td bgcolor="#2d9cdb" align="center">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <tr>
+                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
+                        <a href="https://mlmimpact.com" target="_blank">
+                            <img alt="Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjkuMzggMTk3LjU0Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZiNmM0ODt9LmNscy0ye2ZpbGw6IzAwYjFmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmJyYWluPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU2LjUzLDE1LjgybDU3LjU5LTE0LjRhNSw1LDAsMCwxLDUuNDQsNy41Mkw5MC44NSw1NC4zN2MtMS40MywyLjI3LTcsNi4zMS0xMS41NC42OUw1My44NywyMy44M0E1LDUsMCwwLDEsNTYuNTMsMTUuODJaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzcuMzIsMjQuNmwtNSw1Ljc3YTUsNSwwLDAsMCw0LjExLDguMjVsOS4xNS0uNmE1LDUsMCwwLDAsMy41Ni04LjEzTDQ1LDI0LjczQTUsNSwwLDAsMCwzNy4zMiwyNC42WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI0LDQ3LDE1LjQ1LDUzLjdhNSw1LDAsMCwwLS45MSw3TDM5LjYyLDkzLjgzYTUsNSwwLDAsMCw2LjkyLDFsMjcuNzMtMjBhNSw1LDAsMCwwLC45NC03LjIyTDU3LjUzLDQ2LjA1YTUsNSwwLDAsMC00LjE5LTEuODJMMjYuNzcsNDZBNSw1LDAsMCwwLDI0LDQ3WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEuOTQsNzEuNDEsMCw4NS4zM2E1LDUsMCwwLDAsLjE2LDIuMTFsNy4zMywyNC41MWE1LDUsMCwwLDAsNy43NSwyLjZMMzAuNDgsMTAzLjRhNSw1LDAsMCwwLDEtN0wxMC44OCw2OS4wN0E1LDUsMCwwLDAsMS45NCw3MS40MVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOC44MywxMzIuMjRsMTgsMTAuNDZhNSw1LDAsMCwwLDMuNzcuNTJsMTEuMzEtMi45MmE1LDUsMCwwLDAsMi43LTcuOTFMNDAuMjIsMTEzLjkxYTUsNSwwLDAsMC02LjkxLTFMMTguMzksMTIzLjg5QTUsNSwwLDAsMCwxOC44MywxMzIuMjRaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzEuMywxMzMuNTRsMzYuMzUtMTIuNzJhNSw1LDAsMCwwLDIuMTQtOGwtMjQuODktMjlhNSw1LDAsMCwwLTYuNzItLjc5TDUwLjEsMTAzLjM3YTUsNSwwLDAsMC0xLDcuMTJsMTYuNjIsMjEuNEE1LDUsMCwwLDAsNzEuMywxMzMuNTRaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNzcuMjUsMTQ3LjYxbDEwLjA5LDExLjk0YTUsNSwwLDAsMCw0LDEuNzdsMjguMjItLjg4YTUsNSwwLDAsMCwyLjUyLS43OGwxMS40Ni03LjI3YTUsNSwwLDAsMCwxLjIyLTcuMzVsLTEzLjI5LTE2LjU1YTUsNSwwLDAsMC01LjU1LTEuNTlMNzkuNDIsMTM5LjY3QTUsNSwwLDAsMCw3Ny4yNSwxNDcuNjFaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTMzLjUxLDE2OC4xbDIyLjgsMjcuNjFhNSw1LDAsMCwwLDguODQtMy41M2wtMS40Ni0yMC45NWE1LDUsMCwwLDAtMS40Mi0zLjE1bC0xMi4yMS0xMi40NmE1LDUsMCwwLDAtNi4yNS0uNzJsLTkuMTMsNS44QTUsNSwwLDAsMCwxMzMuNTEsMTY4LjFaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTYyLjc0LDE1NS43OGwxMS4xNSw1LjEzYTUsNSwwLDAsMCw2LjY5LTIuNThMMTg4LjM5LDE0MGE1LDUsMCwwLDAtNS4zNS02LjlsLTI3LjgxLDQuMmE1LDUsMCwwLDAtMi44Miw4LjQ0bDguODUsOUE1LDUsMCwwLDAsMTYyLjc0LDE1NS43OFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xOTQuODgsMTY1LjE4LDIwNywxNjMuMzVhNSw1LDAsMCwwLDEuOTEtLjcxTDIzMi4xNCwxNDhhNSw1LDAsMCwwLDIuMjctMy4zOGwxLjQ0LTguMzFhNSw1LDAsMCwwLTUuNjctNS44bC0yOC4wNSw0LjIyYTUsNSwwLDAsMC0zLjg2LDNsLTguNzMsMjAuNTJBNSw1LDAsMCwwLDE5NC44OCwxNjUuMThaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjEyLjMsMTEzLjI0bDEwLjEtMjMuNjJhNSw1LDAsMCwxLDkuMTYtLjA3bDkuNDgsMjEuMmE3LjE3LDcuMTcsMCwwLDEtNS40MywxMGwtMTUuNzEsMi4zOEE3LjE1LDcuMTUsMCwwLDEsMjEyLjMsMTEzLjI0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI1NS43OCwxMTMuMDhsNC4wOS0xLjc3YTYuNzgsNi43OCwwLDAsMCwzLjY4LTQuMjhsNS42MS0xOGE1LDUsMCwwLDAsMC0zbC01LTE1LjQ0Yy0xLjE5LTMuNzEtNC44Mi01LjYtOC4wNy00LjIybC0xNS40LDYuNTFjLTMuNCwxLjQ0LTUsNS44NC0zLjUzLDkuNTlsMTAuNjcsMjYuOTRDMjQ5LjIsMTEyLjc5LDI1Mi42OCwxMTQuNDIsMjU1Ljc4LDExMy4wOFoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMzAuMjYsNjMuMzYsMjIwLjUsMzcuOTNhOCw4LDAsMCwxLDEuODUtOC42M2w2LjM5LTUuN2E1LjQxLDUuNDEsMCwwLDEsOC4zNCwxLjI2bDE2Ljg1LDI1LjJjMi41MywzLjc5LDEuMjEsOS40LTIuNjIsMTEuMDlsLTEzLjQ3LDUuOTRDMjM0Ljg4LDY4LjM5LDIzMS41Nyw2Ni43NiwyMzAuMjYsNjMuMzZaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTk5LjE0LDM5bC0yMCwxMy44MWE2LjUsNi41LDAsMCwwLTIuNTMsMy4zNWwtNS40NiwxN2MtMS42Miw1LjA2LDMuNzQsOS42Nyw5LjIxLDcuOTFsMzUuMjUtMTEuMzJjMy45NC0xLjI2LDUuODQtNS4zMiw0LjExLTguNzhsLTkuNzctMTkuNTJDMjA4LDM3Ljc1LDIwMi43NywzNi41NCwxOTkuMTQsMzlaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTkwLjEyLDE0LjIzbC0zLjM3LDcuOTJjLTIuMjMsNS4yNCw1LjQ3LDkuNTksMTEuMDUsNi4yNmw2LTMuNThjMi42OS0xLjYxLDMuNTctNC40OCwyLjEzLTYuODhsLTIuNjEtNC4zNEMyMDAuNTYsOSwxOTIuMTYsOS40NCwxOTAuMTIsMTQuMjNaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTM5LjI3LjExbDM4Ljc5LDguMTRhNSw1LDAsMCwxLDMuNzEsNi40OEwxNjkuMSw1Mi41MUE1LDUsMCwwLDEsMTYyLDU1LjM1TDEyMC40MSwzMy42YTUsNSwwLDAsMS0xLjg5LTcuMTNMMTM0LDIuM0E1LDUsMCwwLDEsMTM5LjI3LjExWiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE1NC42NSw5OS4xN2w4LjExLTI3Ljg0YTUsNSwwLDAsMC0yLjQ4LTUuODNsLTQzLjkzLTIzYTUsNSwwLDAsMC02LjU2LDEuNzlMOTMuODQsNjkuOTVhNSw1LDAsMCwwLC40NSw1LjlsMjguMTIsMzIuNzFhNSw1LDAsMCwwLDUuMzEsMS41MWwyMy42NC03LjUyQTUsNSwwLDAsMCwxNTQuNjUsOTkuMTdaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTI4LjEzLDEyNC43NWw4LjU3LDEwLjY3YTUsNSwwLDAsMCw4LjY3LTEuNjRMMTUwLDExOC45MWE1LDUsMCwwLDAtNi4yOS02LjI2bC0xMy4yMyw0LjIxQTUsNSwwLDAsMCwxMjguMTMsMTI0Ljc1WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTE2Ni4yNiw5NS41N2w0Mi41My0xNUE1LDUsMCwwLDEsMjE1LDg3LjIzbC0xNCwzMi42MWE1LDUsMCwwLDEtMy44NSwzbC0zNS42OCw1LjM5YTUsNSwwLDAsMS01LjUyLTYuNDRsNy4yLTIzQTUsNSwwLDAsMSwxNjYuMjYsOTUuNTdaIi8+PC9nPjwvZz48L3N2Zz4=" width="40" height="40" style="display: block; width: 40px; max-width: 40px; min-width: 40px; font-family: 'Montserrat', Helvetica, Arial, sans-serif; color: #ffffff; font-size: 18px;" border="0">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- HERO -->
+    <tr>
+        <td bgcolor="#2d9cdb" align="center" style="padding: 0px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <tr>
+                    <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 28px; font-weight: 400; letter-spacing: 1px; line-height: 38px;">
+                      <h1 style="font-size: 28px; font-weight: 400; margin: 0;">$$$TITLE$$$</h1>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- COPY BLOCK -->
+    <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+              <!-- COPY -->
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;" >
+                  <p style="margin: 0;">Description</p>
+                </td>
+              </tr>
+              <!-- BULLETPROOF BUTTON -->
+              <tr>
+                <td bgcolor="#ffffff" align="left">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                              <td align="center" style="border-radius: 3px;" bgcolor="#2d9cdb"><a href="$$$INVITATION_LINK$$$" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #2d9cdb; display: inline-block;">Accept Invitation</a></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- COPY -->
+              
+              <!-- COPY -->
+              <tr>
+                <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;" >
+                  <p style="margin: 0;">Cheers,<br>The CommonBrain Team</p>
+                </td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    
+    <!-- SUPPORT CALLOUT -->
+    <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+                <!-- HEADLINE -->
+                <tr>
+                  <td bgcolor="#73b9df" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;" >
+                    <h2 style="font-size: 20px; font-weight: 400; color: #ffffff; margin: 0;">Need more about us?</h2>
+                    <p style="margin: 0;"><a href="$$$DOMAIN$$$" target="_blank" style="color: #ffffff;">We&rsquo;re here.</a></p>
+                  </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <!-- FOOTER -->
+    <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+            <tr>
+            <td align="center" valign="top" width="600">
+            <![endif]-->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" >
+              <!-- NAVIGATION -->
+              <!-- <tr>
+                <td bgcolor="#f4f4f4" align="left" style="padding: 30px 30px 30px 30px; color: #666666; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
+                  <p style="margin: 0;">
+                    <a href="https://app.mlmimpact.com" target="_blank" style="color: #111111; font-weight: 600;">Dashboard</a> -
+                    <a href="https://mlmimpact.com/help" target="_blank" style="color: #111111; font-weight: 600;">Help</a>
+                  </p>
+                </td>
+              </tr> -->
+              <!-- PERMISSION REMINDER -->
+              <!-- <tr>
+                <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
+                  <p style="margin: 0;">You received this email because somebody you know just invited you to join their team. If you suspect fraud, please <a href="https://mlmimpact.com/help" target="_blank" style="color: #111111; font-weight: 700;">contact us</a>.</p>
+                </td>
+              </tr> -->
+              <!-- UNSUBSCRIBE 
+              <tr>
+                <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
+                  <p style="margin: 0;">If these emails get annoying, please feel free to <a href="https://mlmimpact.com/help" target="_blank" style="color: #111111; font-weight: 600;">unsubscribe</a>.</p>
+                </td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+</table>
+    
+</body>
+</html>
+
