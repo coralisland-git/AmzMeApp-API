@@ -43,14 +43,14 @@ cron.schedule('5 * * * *', () => {
 			.toArray()
 			.then(result => {
 		        result.map( (res) => {
-					var amazonMws = require('amazon-mws')(res['aws_access_key_id'], res['secret_key']);	
+					var amazonMws = require('amazon-mws')(process.env.AWS_ACCESS_KEY, process.env.SECRET_KEY);	
 					// var diff = Math.abs(new Date() - new Date(res['last_date']));
 					// var minutes = Math.floor((diff/1000)/60);
 		         	amazonMws.orders.search({
 					    'Version': '2013-09-01',
 					    'Action': 'ListOrders',
 					    'SellerId': res['seller_id'],
-					    // 'MWSAuthToken': 'MWS_AUTH_TOKEN',
+					    'MWSAuthToken': res['mws_auth_token'],
 		             	'MarketplaceId.Id.1': res['market_place_id'],
 					    'LastUpdatedAfter': res['last_date']
 					}, function (error, response) {
