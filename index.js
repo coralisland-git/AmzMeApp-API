@@ -52,7 +52,8 @@ cron.schedule('5 * * * *', () => {
 					    'SellerId': res['seller_id'],
 					    'MWSAuthToken': res['mws_auth_token'],
 		             	'MarketplaceId.Id.1': res['market_place_id'],
-					    'LastUpdatedAfter': res['last_date']
+					    // 'LastUpdatedAfter': res['last_date']
+					    'LastUpdatedAfter': new Date(2018,11,6,)
 					}, function (error, response) {
 					    if (error) {
 					        console.log('error ', error);
@@ -60,23 +61,35 @@ cron.schedule('5 * * * *', () => {
 					    }
 					    // response.Orders.Order.map(console.log);
 				       	response.Orders.Order.map( (order) => {
-							var notification = new OneSignal.Notification({    
-							    contents: {    
-							        en: "Test notification",
-							    }
-							});  
-							// <quantity> <product name > for <amount> <currency>. 
-							notification.postBody["filters"] = [{"field": "tag", "key": "userId", "relation": "=" ,"value": ObjectId(res['_id'])}];
-							notification.postBody["included_segments"] = ["Active Users"];    
-							notification.postBody["excluded_segments"] = ["Banned Users"];
-							notification.postBody["data"] = order;
-							myClient.sendNotification(notification)
-						    .then(function (response) {
-						        console.log(response.data, response.httpResponse.statusCode);
-						    })
-						    .catch(function (err) {
-						        console.log('Something went wrong...', err);
-						    });
+
+				       		amazonMws.orders.search({
+							    'Version': '2013-09-01',
+							    'Action': 'ListOrderItems',
+							    'SellerId': res['seller_id'],
+							    'MWSAuthToken': res['mws_auth_token'],
+							    'AmazonOrderId' : order['AmazonOrderId']
+							}, function(error, responseOrderItem){
+								var notification = new OneSignal.Notification({    
+								    contents: {    
+								        en: responseOrderItem.OrderItems.OrderItem.QuantityOrdered + ' ' + responseOrderItem.OrderItems.OrderItem.Title 
+												+  (order.OrderTotal? ' for ' + order.OrderTotal.Amount  + ' ' + order.OrderTotal.CurrencyCode : ''),
+								    },
+								    title: 'New Order'
+								});  
+								// <quantity> <product name > for <amount> <currency>. 
+								notification.postBody["filters"] = [{"field": "tag", "key": "userId", "relation": "=" ,"value": ObjectId(res['_id'])}];
+								notification.postBody["included_segments"] = ["Active Users"];    
+								notification.postBody["excluded_segments"] = ["Banned Users"];								
+								myClient.sendNotification(notification)
+							    .then(function (response) {
+							        console.log(response.data, response.httpResponse.statusCode);
+							    })
+							    .catch(function (err) {
+							        console.log('Something went wrong...', err);
+							    });
+								
+							})
+
 						});
 					});
 					delete res.last_date;
