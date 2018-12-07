@@ -68,19 +68,19 @@ router.get("/", (req, res, next) => {
 })
 
 
-
 router.post("/", (req, res, next) => {
   // var token = req.headers["authorization"];
   // token = token.split(" ");
   // if (!token[1])
   //   return res.status(401).send({ auth: false, message: "No token provided." });
-  const { sellerId, marketPlaceId, secretKey, awsAccessKeyId, email } = req.body;
-  var amazonMws = require('amazon-mws')(awsAccessKeyId, secretKey);  
+  const { sellerId, marketPlaceId, mwsAuthToken, email } = req.body;
+  var amazonMws = require('amazon-mws')(process.env.AWS_ACCESS_KEY, process.env.SECRET_KEY);   
+  
   amazonMws.feeds.search({
         'Version': '2009-01-01',
         'Action': 'GetFeedSubmissionList',
         'SellerId': sellerId,
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        'MWSAuthToken': mwsAuthToken
     }, function (error, response) {
       if (error) {
           res.status(404).json({
@@ -100,8 +100,7 @@ router.post("/", (req, res, next) => {
                 email : email,
                 seller_id : sellerId, 
                 market_place_id : marketPlaceId,
-                secret_key : secretKey,
-                aws_access_key_id : awsAccessKeyId,
+                mws_auth_token : mwsAuthToken,
                 last_date : new Date()
               })
               .then(c_result => {
